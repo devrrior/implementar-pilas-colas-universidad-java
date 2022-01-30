@@ -1,6 +1,8 @@
 package libreria;
 
-public class Colas {
+import java.util.Scanner;
+
+public class Cola {
     private int MAX;
     private String[] COLA;
     private int FRENTE;
@@ -67,6 +69,4 @@ public class Colas {
         FRENTE = 0;
         FINAL = 0;
     }
-
-
 }
