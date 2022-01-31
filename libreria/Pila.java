@@ -49,9 +49,11 @@ public class Pila {
     }
 
     public void mostrar(){
+        int contador=1;
+
         if(!vacio()){
             for(int i=(cima-1);i>=0;i--){
-                System.out.println(arreglo[i]);
+                System.out.println(contador++ + ". " + arreglo[i]);
             }
         }
         else{
@@ -59,18 +61,6 @@ public class Pila {
         }
     }
 
-    public void solicitarLibros(){
-
-        String str;
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Por favor ingrese sus libros");
-        for(int i=1; i<=tamanomax; i++){
-            System.out.print("producto " + i);
-            str = input.next();
-            agregar(str);
-        }
-    }
 
         
     public static void main(String[] args) {
