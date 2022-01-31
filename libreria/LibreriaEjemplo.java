@@ -8,14 +8,17 @@ public class LibreriaEjemplo {
     String[] nombresCola = colaLibreria.getCOLA();
     Pila[] libros = colaLibreria.getLibros();
     int frenteCola = colaLibreria.getFRENTE();
+    String mensaje = "";
 
     // mostrar nombre del cliente
-    System.out.println("\nEl cliente despachado es: " + nombresCola[frenteCola + 1]);
+    mensaje = "\nEl cliente despachado es: " + nombresCola[frenteCola + 1] + "\n";
     // mostrar los libros
-    System.out.println("\nLos libros se despacharon en el siguiente orden: ");
-    libros[frenteCola].mostrar();
+    mensaje += "\nLos libros se despacharon en el siguiente orden: " + "\n";
+    mensaje += libros[frenteCola].mostrar() + "\n";
     // eliminar cola
-    colaLibreria.EliminarCola();
+    if(colaLibreria.EliminarCola()){
+      System.out.println(mensaje);
+    }
   }
 
   public static void pedirLibros(Cola colaLibreria) {
