@@ -10,7 +10,7 @@ public class LibreriaEjemplo {
     int frenteCola = colaLibreria.getFRENTE();
 
     // mostrar nombre del cliente
-    System.out.println("\nEl cliente despachado es: " + nombresCola[frenteCola]);
+    System.out.println("\nEl cliente despachado es: " + nombresCola[frenteCola + 1]);
     // mostrar los libros
     System.out.println("\nLos libros se despacharon en el siguiente orden: ");
     libros[frenteCola].mostrar();
@@ -50,7 +50,7 @@ public class LibreriaEjemplo {
     Cola colaLibreria = new Cola(MAX);
 
     do {
-      System.out.println("--- Bienvenido a libreria Quijote de la Mancha ---");
+      System.out.println("\n--- Bienvenido a libreria Quijote de la Mancha ---");
       System.out.println("1. Anadir persona a la fila");
       System.out.println("2. Remover persona de la fila");
       System.out.println("3. Mostrar fila");
