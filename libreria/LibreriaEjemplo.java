@@ -18,13 +18,12 @@ public class LibreriaEjemplo {
     colaLibreria.EliminarCola();
   }
 
-  public static void pedirLibros(colaLibreria) {
+  public static void pedirLibros(Cola colaLibreria) {
 
     // aqui haces tu magia bro
     // aqui se implementa la pila con los libros
     Scanner entrada = new Scanner(System.in);
     Pila libros = new Pila();
-    Scanner entrada = new Scanner(System.in);
     System.out.println("Introduce los numero de libros que vas a pagas: ");
     noLibros = entrada.nextInt();
     for (int i = 1; i < noLibros; i++) {
