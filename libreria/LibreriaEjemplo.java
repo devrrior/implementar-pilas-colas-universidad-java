@@ -10,9 +10,9 @@ public class LibreriaEjemplo {
     int frenteCola = colaLibreria.getFRENTE();
 
     // mostrar nombre del cliente
-    System.out.println("El cliente despachado es: " + nombresCola[frenteCola]);
+    System.out.println("\nEl cliente despachado es: " + nombresCola[frenteCola]);
     // mostrar los libros
-    System.out.println("Los libros se despacharon en el siguiente orden: ");
+    System.out.println("\nLos libros se despacharon en el siguiente orden: ");
     libros[frenteCola].mostrar();
     // eliminar cola
     colaLibreria.EliminarCola();
@@ -23,15 +23,21 @@ public class LibreriaEjemplo {
     // aqui haces tu magia bro
     // aqui se implementa la pila con los libros
     Scanner entrada = new Scanner(System.in);
-    Pila libros = new Pila();
-    System.out.println("Introduce los numero de libros que vas a pagas: ");
-    noLibros = entrada.nextInt();
-    for (int i = 1; i < noLibros; i++) {
+    int frenteCola = colaLibreria.getFRENTE();
+    String nombreLibro = "";
+
+    System.out.println("\nIntroduce los numero de libros que vas a pagar: ");
+    int noLibros = entrada.nextInt();
+    Pila libros = new Pila(noLibros);
+
+    entrada = new Scanner(System.in);
+    for (int i = 1; i <= noLibros; i++) {
+      System.out.println("\nEscribe el nombre de tu libro: ");
       nombreLibro = entrada.nextLine();
       libros.agregar(nombreLibro);
     }
 
-    colaLibreria.setLibros(frente, libros);
+    colaLibreria.setLibros(frenteCola, libros);
 
   }
 

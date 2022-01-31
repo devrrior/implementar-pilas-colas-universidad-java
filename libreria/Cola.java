@@ -14,6 +14,7 @@ public class Cola {
     this.FRENTE = 0;
     this.FINAL = 0;
     this.COLA = new String[this.MAX + 1];
+    this.LIBROS = new Pila[this.MAX + 1];
   }
 
   public Cola(int MAX) {
@@ -21,6 +22,7 @@ public class Cola {
     this.FRENTE = 0;
     this.FINAL = 0;
     this.COLA = new String[this.MAX + 1];
+    this.LIBROS = new Pila[this.MAX + 1];
   }
 
   public boolean IsColaLlena() {
@@ -38,14 +40,11 @@ public class Cola {
     } else {
       String dato;
       System.out.println("Ingrese su primer nombre:");
-      dato = entrada3.next();
+      dato = entrada3.nextLine();
       this.FINAL++;
       this.COLA[FINAL] = dato;
     }
 
-    // Pedir libros
-    this.LIBROS[FINAL] = new Pila();
-    this.LIBROS[FINAL].pedirElementos();
   }
 
   public void EliminarCola() {
@@ -63,9 +62,9 @@ public class Cola {
     if (this.FRENTE == this.FINAL) {
       System.out.println("La cola esta vacia, no hay datos.");
     } else {
-      String MOSTRAR = " ";
+      String MOSTRAR = "";
       for (int i = FRENTE + 1; i <= FINAL; i++) {
-        MOSTRAR = MOSTRAR + COLA[i] + "\n";
+        MOSTRAR += i + ". " + COLA[i] + "\n";
       }
       System.out.println("Total es: " + this.FINAL + "\n" + "Los datos de cola son: \n " + MOSTRAR);
     }
