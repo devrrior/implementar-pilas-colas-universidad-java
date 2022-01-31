@@ -3,70 +3,92 @@ package libreria;
 import java.util.Scanner;
 
 public class Cola {
-    private int MAX;
-    private String[] COLA;
-    private int FRENTE;
-    private int FINAL;
+  private int MAX;
+  private String[] COLA;
+  private Pila[] LIBROS;
+  private int FRENTE;
+  private int FINAL;
 
-    public Cola() {
-        this.MAX = 100;
-        this.FRENTE = 0;
-        this.FINAL = 0;
-        this.COLA = new String[this.MAX + 1];
+  public Cola() {
+    this.MAX = 100;
+    this.FRENTE = 0;
+    this.FINAL = 0;
+    this.COLA = new String[this.MAX + 1];
+  }
+
+  public Cola(int MAX) {
+    this.MAX = MAX;
+    this.FRENTE = 0;
+    this.FINAL = 0;
+    this.COLA = new String[this.MAX + 1];
+  }
+
+  public boolean IsColaLlena() {
+    if (this.FINAL == this.MAX) {
+      return true;
+    }
+    return false;
+  }
+
+  public void InsertarCola() {
+    // Pedir nombre
+    Scanner entrada3 = new Scanner(System.in);
+    if (this.IsColaLlena()) {
+      System.out.println("LA COLA ESTÁ LLENA");
+    } else {
+      String dato;
+      System.out.println("Ingrese su primer nombre:");
+      dato = entrada3.next();
+      this.FINAL++;
+      this.COLA[FINAL] = dato;
     }
 
-    public Cola(int MAX) {
-        this.MAX = MAX;
-        this.FRENTE = 0;
-        this.FINAL = 0;
-        this.COLA = new String[this.MAX + 1];
-    }
+    // Pedir libros
+    this.LIBROS[FINAL] = new Pila();
+    this.LIBROS[FINAL].pedirElementos();
+  }
 
-    public boolean IsColaLlena() {
-        if (this.FINAL == this.MAX) {
-            return true;
-        }
-        return false;
+  public void EliminarCola() {
+    if (this.FRENTE == this.FINAL) {
+      System.out.println("La cola esta vacia");
+    } else {
+      for (int i = FRENTE; i <= FINAL - 1; i++) {
+        COLA[i] = COLA[i + 1];
+      }
+      FINAL--;
     }
+  }
 
-    public void InsertarCola() {
-        Scanner entrada3 = new Scanner(System.in);
-        if (this.IsColaLlena()) {
-            System.out.println("LA COLA ESTÁ LLENA");
-        } else {
-            String dato;
-            System.out.println("Ingrese su primer nombre:");
-            dato = entrada3.next();
-            this.FINAL++;
-            this.COLA[FINAL] = dato;
-        }
+  public void MostrarCola() {
+    if (this.FRENTE == this.FINAL) {
+      System.out.println("La cola esta vacia, no hay datos.");
+    } else {
+      String MOSTRAR = " ";
+      for (int i = FRENTE + 1; i <= FINAL; i++) {
+        MOSTRAR = MOSTRAR + COLA[i] + "\n";
+      }
+      System.out.println("Total es: " + this.FINAL + "\n" + "Los datos de cola son: \n " + MOSTRAR);
     }
+  }
 
-    public void EliminarCola() {
-        if (this.FRENTE == this.FINAL) {
-            System.out.println("La cola esta vacia");
-        } else {
-            for (int i = FRENTE; i <= FINAL - 1; i++) {
-                COLA[i] = COLA[i + 1];
-            }
-            FINAL--;
-        }
-    }
+  public void VaciarCola() {
+    FRENTE = 0;
+    FINAL = 0;
+  }
 
-    public void MostrarCola() {
-        if (this.FRENTE == this.FINAL) {
-            System.out.println("La cola esta vacia, no hay datos.");
-        } else {
-            String MOSTRAR = " ";
-            for (int i = FRENTE + 1; i <= FINAL; i++) {
-                MOSTRAR = MOSTRAR + COLA[i] + "\n";
-            }
-            System.out.println("Total es: " + this.FINAL + "\n" + "Los datos de cola son: \n " + MOSTRAR);
-        }
-    }
+  public String[] getCOLA(){
+    return this.COLA;
+  }
 
-    public void VaciarCola() {
-        FRENTE = 0;
-        FINAL = 0;
-    }
+  public Pila[] getLibros(){
+    return this.LIBROS;
+  }
+
+  public void setLibros(int frente, Pila libros){
+    this.LIBROS[frente] = libros;
+  }
+
+  public int getFRENTE(){
+    return this.FRENTE;
+  }
 }
