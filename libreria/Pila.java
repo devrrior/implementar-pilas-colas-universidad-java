@@ -1,14 +1,16 @@
 package libreria;
 
+import java.util.Scanner;
+
 public class Pila {
     String arreglo[];
     int tamanomax;
     int cima;
 
     public Pila(int n){
-        tamanomax=n;
-        arreglo= new String[tamanomax];
-        cima=0;
+        tamanomax = n;
+        arreglo = new String[tamanomax];
+        cima = 0;
     }
 
     public boolean vacio(){
@@ -20,7 +22,7 @@ public class Pila {
         }
     }
 
-    public void cobrar(String str){
+    public void agregar(String str){
         if(cima<tamanomax){
             arreglo[cima]=str;
             cima++;
@@ -44,5 +46,43 @@ public class Pila {
             cima--;
         }
         return temp;
+    }
+
+    public void mostrar(){
+        if(!vacio()){
+            for(int i=(cima-1);i>=0;i--){
+                System.out.println(arreglo[i]);
+            }
+        }
+        else{
+            System.out.println("Pila vacia");
+        }
+    }
+
+    public void solicitarLibros(){
+
+        String str;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Por favor ingrese sus libros");
+        for(int i=1; i<=tamanomax; i++){
+            System.out.print("producto " + i);
+            str = input.next();
+            agregar(str);
+        }
+    }
+
+        
+    public static void main(String[] args) {
+        Pila hoal = new Pila(5);
+        hoal.agregar("libro 1");
+        hoal.agregar("libro 2");
+        hoal.agregar("libro 3");
+        hoal.agregar("libro 4");
+        hoal.agregar("libro 5");
+
+        System.out.println(hoal.mostrarCima());
+        hoal.mostrar();
+        
     }
 }
