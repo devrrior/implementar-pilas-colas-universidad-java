@@ -32,17 +32,19 @@ public class Cola {
     return false;
   }
 
-  public void InsertarCola() {
+  public boolean InsertarCola() {
     // Pedir nombre
     Scanner entrada3 = new Scanner(System.in);
     if (this.IsColaLlena()) {
       System.out.println("LA COLA ESTÁ LLENA");
+      return false;
     } else {
       String dato;
       System.out.println("Ingrese su primer nombre:");
       dato = entrada3.nextLine();
       this.FINAL++;
       this.COLA[FINAL] = dato;
+      return true;
     }
 
   }

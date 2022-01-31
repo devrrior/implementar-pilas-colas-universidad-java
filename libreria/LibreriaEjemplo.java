@@ -60,8 +60,9 @@ public class LibreriaEjemplo {
 
       switch (opt) {
         case 1:
-          colaLibreria.InsertarCola();
+          if(colaLibreria.InsertarCola()){
           pedirLibros(colaLibreria);
+        }
           break;
         case 2:
           despacharCliente(colaLibreria);
