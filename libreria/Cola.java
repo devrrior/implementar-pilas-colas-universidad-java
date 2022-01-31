@@ -32,29 +32,33 @@ public class Cola {
     return false;
   }
 
-  public void InsertarCola() {
+  public boolean InsertarCola() {
     // Pedir nombre
     Scanner entrada3 = new Scanner(System.in);
     if (this.IsColaLlena()) {
       System.out.println("LA COLA ESTÁ LLENA");
+      return false;
     } else {
       String dato;
       System.out.println("Ingrese su primer nombre:");
       dato = entrada3.nextLine();
       this.FINAL++;
       this.COLA[FINAL] = dato;
+      return true;
     }
 
   }
 
-  public void EliminarCola() {
+  public boolean EliminarCola() {
     if (this.FRENTE == this.FINAL) {
       System.out.println("La cola esta vacia");
+      return false;
     } else {
       for (int i = FRENTE; i <= FINAL - 1; i++) {
         COLA[i] = COLA[i + 1];
       }
       FINAL--;
+      return true;
     }
   }
 
