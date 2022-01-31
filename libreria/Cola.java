@@ -56,6 +56,7 @@ public class Cola {
     } else {
       for (int i = FRENTE; i <= FINAL - 1; i++) {
         COLA[i] = COLA[i + 1];
+        LIBROS[i] = LIBROS[i + 1];
       }
       FINAL--;
       return true;
@@ -87,11 +88,15 @@ public class Cola {
     return this.LIBROS;
   }
 
-  public void setLibros(int frente, Pila libros){
-    this.LIBROS[frente] = libros;
+  public void setLibros(int finalCola, Pila libros){
+    this.LIBROS[finalCola] = libros;
   }
 
   public int getFRENTE(){
     return this.FRENTE;
+  }
+
+  public int getFINAL(){
+    return this.FINAL;
   }
 }
