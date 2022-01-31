@@ -48,17 +48,18 @@ public class Pila {
         return temp;
     }
 
-    public void mostrar(){
+    public String mostrar(){
         int contador=1;
-
+        String libros="";
         if(!vacio()){
             for(int i=(cima-1);i>=0;i--){
-                System.out.println(contador++ + ". " + arreglo[i]);
+                libros += contador++ + ". " + arreglo[i] + "\n";
             }
         }
         else{
             System.out.println("Pila vacia");
         }
+        return libros;
     }
 
 
@@ -72,7 +73,7 @@ public class Pila {
         hoal.agregar("libro 5");
 
         System.out.println(hoal.mostrarCima());
-        hoal.mostrar();
+        System.out.println(hoal.mostrar()); 
         
     }
 }
